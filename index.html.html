@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      padding: 30px;
+      text-align: center;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .btn {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Welcome to Grow up portal</h1>
+    <form id="userForm">
+      <input type="text" id="name" placeholder="Enter your name" required><br>
+      <input type="text" id="subject" placeholder="Enter subject" required><br>
+      <input type="text" id="timing" placeholder="Enter timing (e.g., 10:00 AM - 12:00 PM)" required><br>
+      <button type="submit" class="btn">Go to Dashboard</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("userForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // prevent form from submitting normally
+      // Get values
+      const name = document.getElementById("name").value;
+      const subject = document.getElementById("subject").value;
+      const timing = document.getElementById("timing").value;
+      // Store in localStorage
+      localStorage.setItem("userName", name);
+      localStorage.setItem("userSubject", subject);
+      localStorage.setItem("userTiming", timing);
+      // Redirect to dashboard
+      window.location.href = "dashboard.html";
+    });
+  </script>
+
+</body>
+</html>
